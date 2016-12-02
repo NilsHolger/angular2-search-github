@@ -1,0 +1,32 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <div class="row pull-xs-right">
+            <div class="col-md-3 hidden-md-down">
+                <a class="navbar-brand" href="#">Angular 2 Search GitHub</a>
+            </div>
+            <div class="col-md-6">
+
+              <form>
+
+                <div class="form-group">
+
+                  <div class="input-group">
+                        <input type="text" name="username" 
+                        class="form-control" placeholder="Enter a GitHub UserName ..." [(ngModel)]="gitHubUser.userName"
+                        (keyup)="searchUser()">
+                        <div class="input-group-addon"><i class="fa fa-keyboard-o" aria-hidden="true"></i></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-3">
+              <nav class="nav navbar-nav pull xs-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/angularjs"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/angular"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
+                    </li>
+              </nav>
+            </div>
+        </div>
+</nav>

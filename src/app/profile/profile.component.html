@@ -1,0 +1,61 @@
+<div class="m-x-auto" *ngIf="gitHubUser.user === false && (gitHubUser.userName && gitHubUser.userName.length > 0)">
+  <div class="starter-template text-xs-center">
+    <h5>User Profile not found.</h5>
+    <p class="lead">Please enter a different <b>username</b>.</p>
+  </div>
+</div>
+<div class="m-x-auto" *ngIf="(gitHubUser.userName.length === 0)">
+  <div class="starter-template text-xs-center">
+    <h5>Search Any User</h5>
+    <p class="lead">Please enter a <b>username</b></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+    <div *ngIf="gitHubUser && gitHubUser.user && (gitHubUser.userName && gitHubUser.userName.length > 0)">
+      <div class="card">
+        <h4 class="card-header">{{gitHubUser.user.name}}</h4>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-xl-4 m-b-1">
+              <img src="{{gitHubUser.user.avatar_url}}" class="profile-img-thumbnail m-b-1">
+              <a class="btn btn-sm btn-outline-primary btn-block m-t-1" href="{{gitHubUser.user.html_url}}" target="_blank">View Profile</a>
+            </div>
+            <div class="col-xl-8">
+              <ul class="list-group">
+                <li class="list-group-item"><b>Username: </b>{{gitHubUser.user.login}}</li>
+                <li class="list-group-item"><b>Location: </b>{{gitHubUser.user.location}}</li>
+                <li class="list-group-item"><b>E-Mail: </b>{{gitHubUser.user.email}}</li>
+                <li class="list-group-item"><b>Blog Link: </b>{{gitHubUser.user.blog}}</li>
+                <li class="list-group-item"><b>Member Since: </b>{{gitHubUser.user.created_at}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="status m-t-1">
+            <span class="p-a-05 bg-info text-xs-center">{{gitHubUser.user.public_repos}} Public Repositories</span>
+            <span class="p-a-05 bg-primary m-t-1 text-xs-center">{{gitHubUser.user.public_gists}} Public Gists</span>
+            <span class="p-a-05 bg-danger m-t-1 text-xs-center">{{gitHubUser.user.followers}} Followers</span>
+            <span class="p-a-05 bg-inverse m-t-1 text-xs-center">{{gitHubUser.user.following}} Followings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div *ngIf="gitHubUser && gitHubUser.user && (gitHubUser.userName && gitHubUser.userName.length > 0)">
+      <div class="card">
+        <h5 class="card-header">Repositories</h5>
+        <div class="card-block">
+          <div class="list-group">
+            <a *ngFor="let repositories of gitHubUser.repos" href="{{repositories.html_url}}" target="_blank" class="list-group-item-action">
+              <span class="tag tag-info pull-xs-right">{{repositories.watchers}} Watchers</span>
+              <span class="tag tag-success pull-xs-right m-r-05">{{repositories.forks}} Forks</span>
+              <h6 class="list-group-item-heading">{{repositories.name}}</h6>
+              <p class="list-group-item-text">{{repositories.description}}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
